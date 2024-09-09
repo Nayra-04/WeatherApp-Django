@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        input::placeholder {
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> 
+            <img src="{% static 'images/logo.png' %}" alt="Weather Icon" class="logo-icon">
+            <span class="logo-text">Weather App</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-section">
+            <form method="post">
+                {% csrf_token%}
+                <input type="text" placeholder="Search location..." class="search-box" name='city'>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </div>
+        {% if temp and pressure and humidity and description and icon%}
+        <section class="weather-info">
+            <div class="weather-card">
+                <h1>{{city}}</h1>
+                <p>Country_code: {{country_code}}</p>
+                <p>{{description}}</p>
+                <p>Humidity: {{humidity}}%</p>
+                <p>Pressure: {{pressure}} hPa</p>
+                
+            </div>
+            <div class="weather-details">
+                <span class="temp">{{temp}}°C</span>
+                <img src="https://api.openweathermap.org/img/w/{{icon}}.png" alt="icon" class="weather-icon">
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>© 2024 WeatherApp | All rights reserved.</p>
+    </footer>
+</body>
+</html>

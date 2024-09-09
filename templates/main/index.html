@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherApp</title>
+    <link rel="stylesheet" href="{% static 'D:\all\myapp\WeatherProject\static\css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo"> 
+            <img src="weather-icon.png" alt="Weather Icon" class="logo-icon">
+            <span class="logo-text">SimpleWeather</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="search-section">
+            <input type="text" placeholder="Search location..." class="search-box">
+            <button class="toggle-btn">Toggle °F/°C</button>
+        </div>
+
+        <section class="weather-info">
+            <div class="weather-card">
+                <h2>Current Location</h2>
+                <p>Sunny</p>
+                <p>Humidity: 50%</p>
+                <p>Wind Speed: 10 mph</p>
+            </div>
+            <div class="weather-details">
+                <span class="temp">75°F</span>
+                <img src="sunny.png" alt="Sunny" class="weather-icon">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 SimpleWeather | All rights reserved.</p>
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
